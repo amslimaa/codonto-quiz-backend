@@ -2,6 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 
 import multerConfig from './config/multer';
+import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import QuestionController from './app/controllers/QuestionController';
 import FileController from './app/controllers/FileController';
@@ -15,8 +16,8 @@ const upload = multer(multerConfig);
 routes.post('/sessions', SessionController.store);
 routes.get('/quiz', QuizController.show);
 routes.put('/quiz', QuizController.update);
-
 routes.use(authMiddleware);
+routes.get('/profile', UserController.show);
 routes.get('/questions', QuestionController.show);
 routes.post('/questions', QuestionController.store);
 routes.put('/questions', QuestionController.update);

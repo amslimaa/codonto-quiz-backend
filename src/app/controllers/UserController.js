@@ -3,6 +3,18 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
+  async show(req, res) {
+    const id = req.userId;
+    const user = await User.findOne({
+      where: { id },
+      attributes: ['id', 'name', 'email'],
+    });
+    if (!user) {
+      return res.status(401).json({ error: 'User id does not match' });
+    }
+    return res.json(user);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
