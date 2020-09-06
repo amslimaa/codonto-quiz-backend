@@ -1,5 +1,4 @@
 import Sequelize from 'sequelize';
-
 import Users from '../app/models/User';
 import Question from '../app/models/Question';
 import File from '../app/models/File';
