@@ -11,11 +11,13 @@ import QuizController from './app/controllers/QuizController';
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
+
 const upload = multer(multerConfig);
 
 routes.post('/sessions', SessionController.store);
 routes.get('/quiz', QuizController.show);
 routes.put('/quiz', QuizController.update);
+
 routes.use(authMiddleware);
 routes.get('/profile', UserController.show);
 routes.get('/questions', QuestionController.show);
