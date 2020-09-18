@@ -18,6 +18,8 @@ routes.post('/sessions', _SessionController2.default.store);
 routes.get('/quiz', _QuizController2.default.show);
 routes.put('/quiz', _QuizController2.default.update);
 
+routes.get('/', (req, res) => res.send('ok'));
+
 routes.use(_auth2.default);
 routes.get('/profile', _UserController2.default.show);
 routes.get('/questions', _QuestionController2.default.show);

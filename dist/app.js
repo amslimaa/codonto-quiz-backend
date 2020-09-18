@@ -3,6 +3,8 @@ var _path = require('path');
 var _cors = require('cors'); var _cors2 = _interopRequireDefault(_cors);
 var _routes = require('./routes'); var _routes2 = _interopRequireDefault(_routes);
 
+require('dotenv/config');
+
 require('./database');
 
 class App {
