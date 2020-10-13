@@ -5,6 +5,7 @@ import multerConfig from './config/multer';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import QuestionController from './app/controllers/QuestionController';
+import PlayerTypeController from './app/controllers/PlayerTypeController';
 import FileController from './app/controllers/FileController';
 import QuizController from './app/controllers/QuizController';
 
@@ -18,9 +19,12 @@ routes.post('/sessions', SessionController.store);
 routes.get('/quiz', QuizController.show);
 routes.put('/quiz', QuizController.update);
 
+routes.get('/playerstype', PlayerTypeController.update);
+
 routes.get('/', (req, res) => res.send('ok'));
 
 routes.use(authMiddleware);
+routes.post('/playerstype', PlayerTypeController.store);
 routes.get('/profile', UserController.show);
 routes.get('/questions', QuestionController.show);
 routes.post('/questions', QuestionController.store);
