@@ -2,6 +2,11 @@ import * as Yup from 'yup';
 import PlayerType from '../models/PlayerType';
 
 class PlayerTypeController {
+  async show(req, res) {
+    const { playersType } = await PlayerType.findAll();
+    return res.status(200).json({ playersType });
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       type: Yup.string().required(),

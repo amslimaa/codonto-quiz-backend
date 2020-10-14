@@ -19,7 +19,8 @@ routes.post('/sessions', SessionController.store);
 routes.get('/quiz', QuizController.show);
 routes.put('/quiz', QuizController.update);
 
-routes.get('/playerstype', PlayerTypeController.update);
+routes.get('/playerstype', PlayerTypeController.show);
+routes.put('/playerstype', PlayerTypeController.update);
 
 routes.get('/', (req, res) => res.send('ok'));
 
