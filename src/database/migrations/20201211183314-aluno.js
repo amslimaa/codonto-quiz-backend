@@ -1,39 +1,36 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('questions', {
+    await queryInterface.createTable('alunos', {
       id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         autoIncrement: true,
+        allowNull: false,
         primaryKey: true,
       },
-      question: {
-        type: Sequelize.TEXT,
+      name: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      response: {
-        type: Sequelize.TEXT,
+      email: {
+        type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
-      fake: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNullL: false,
-      },
-      count_hits: {
+      matricula: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
+        allowNull: false,
+        unique: true,
+      },
+      password_hash: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      count_miss: {
+      avatar_id: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false,
-      },
-      active: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
+        references: { model: 'files', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -47,6 +44,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('questions');
+    await queryInterface.dropTable('alunos');
   },
 };

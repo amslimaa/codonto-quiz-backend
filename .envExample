@@ -1,0 +1,14 @@
+APP_NAME=Codonto
+APP_URL=localhost:3333
+
+SECRET_API=9as1%12#xz0#@
+
+# Banco de dados
+DB_DIALECT=postgres
+DB_USERNAME=postgres
+DB_NAME=codonto-quiz
+DB_PASSWORD=
+DB_HOST=localhost
+
+# Stack
+STACK=["React Native", "ReactJS", "NodeJS"]

@@ -8,12 +8,19 @@ import QuestionController from './app/controllers/QuestionController';
 import PlayerTypeController from './app/controllers/PlayerTypeController';
 import FileController from './app/controllers/FileController';
 import QuizController from './app/controllers/QuizController';
+import PacientController from './app/controllers/PacientController';
+import AnamneseController from './app/controllers/AnamneseController';
+import AlunoController from './app/controllers/AlunoController';
+import ConsultaController from './app/controllers/ConsultaController';
 
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 
 const upload = multer(multerConfig);
+
+routes.post('/pacients', PacientController.store);
+routes.post('/anamneses', AnamneseController.store);
 
 routes.post('/sessions', SessionController.store);
 routes.get('/quiz', QuizController.show);
@@ -25,6 +32,8 @@ routes.put('/playerstype', PlayerTypeController.update);
 routes.get('/', (req, res) => res.send('ok'));
 
 routes.use(authMiddleware);
+routes.post('/consultas', ConsultaController.store);
+routes.post('/alunos', AlunoController.store);
 routes.post('/playerstype', PlayerTypeController.store);
 routes.get('/profile', UserController.show);
 routes.get('/questions', QuestionController.show);

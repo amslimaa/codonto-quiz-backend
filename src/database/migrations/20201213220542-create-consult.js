@@ -1,38 +1,32 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('questions', {
+    await queryInterface.createTable('consults', {
       id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         autoIncrement: true,
+        allowNull: false,
         primaryKey: true,
       },
-      question: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      response: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      fake: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNullL: false,
-      },
-      count_hits: {
+      number_of_office: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
         allowNull: false,
       },
-      count_miss: {
+      date_of_consultation: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      pacient_id: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
+        references: { model: 'pacients', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         allowNull: false,
       },
-      active: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      aluno_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'alunos', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         allowNull: false,
       },
       created_at: {
@@ -47,6 +41,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('questions');
+    await queryInterface.dropTable('consults');
   },
 };

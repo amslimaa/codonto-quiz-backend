@@ -3,10 +3,23 @@ import Users from '../app/models/User';
 import Question from '../app/models/Question';
 import PlayerType from '../app/models/PlayerType';
 import File from '../app/models/File';
+import Pacient from '../app/models/Pacient';
+import Anamnese from '../app/models/Anamnese';
+import Aluno from '../app/models/Aluno';
+import Consult from '../app/models/Consult';
 
 import databaseConfig from '../config/database';
 
-const models = [Users, Question, PlayerType, File];
+const models = [
+  Users,
+  Question,
+  PlayerType,
+  File,
+  Pacient,
+  Anamnese,
+  Aluno,
+  Consult,
+];
 
 class Database {
   constructor() {
