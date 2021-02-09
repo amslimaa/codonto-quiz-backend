@@ -7,11 +7,11 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
       },
-      number_of_office: {
+      office: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      date_of_consultation: {
+      date: {
         type: Sequelize.DATE,
         allowNull: false,
       },
@@ -19,15 +19,19 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'pacients', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        allowNull: false,
+        onDelete: 'SET NULL',
+        allowNull: true,
       },
       aluno_id: {
         type: Sequelize.INTEGER,
         references: { model: 'alunos', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        allowNull: false,
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
+      canceled_at: {
+        type: Sequelize.DATE,
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,

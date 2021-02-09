@@ -4,8 +4,8 @@ class Consult extends Model {
   static init(sequelize) {
     super.init(
       {
-        number_of_office: Sequelize.INTEGER,
-        date_of_consultation: Sequelize.DATE,
+        office: Sequelize.INTEGER,
+        date: Sequelize.DATE,
       },
 
       {
