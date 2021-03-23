@@ -12,7 +12,7 @@ module.exports = {
         allowNull: false,
       },
       gen: {
-        type: Sequelize.CHAR,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       phone: {

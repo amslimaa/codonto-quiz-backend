@@ -9,7 +9,7 @@ module.exports = {
       },
       office: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       date: {
         type: Sequelize.DATE,
