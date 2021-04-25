@@ -20,6 +20,9 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/pacients', PacientController.store);
+
+routes.get('/pacients', PacientController.show);
+
 routes.post('/anamneses', AnamneseController.store);
 
 routes.post('/sessions', SessionController.store);
@@ -32,7 +35,10 @@ routes.put('/playerstype', PlayerTypeController.update);
 routes.get('/', (req, res) => res.send('ok'));
 
 routes.use(authMiddleware);
+
+routes.get('/anamneses', AnamneseController.show);
 routes.post('/consultas', ConsultaController.store);
+routes.get('/consultas', ConsultaController.show);
 routes.post('/alunos', AlunoController.store);
 routes.post('/playerstype', PlayerTypeController.store);
 routes.get('/profile', UserController.show);

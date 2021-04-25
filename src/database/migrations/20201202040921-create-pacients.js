@@ -21,11 +21,11 @@ module.exports = {
         allowNull: false,
       },
       birth: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       created_at: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       updated_at: {

@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import { startOfHour, parseISO, isBefore } from 'date-fns';
+import { Sequelize } from 'sequelize';
 import Consult from '../models/Consult';
 import Aluno from '../models/Aluno';
 import Pacient from '../models/Pacient';
@@ -61,6 +62,24 @@ class ConsultaController {
     });
 
     return res.json(consult);
+  }
+
+  async show(req, res) {
+    const { Op } = Sequelize;
+    const consultas = await Consult.findAll({
+      attributes: ['id', 'date', 'office'],
+      where: {
+        date: {
+          [Op.gte]: new Date(),
+          [Op.lte]: new Date(Date.now() + 120 * 60 * 60 * 1000),
+        },
+      },
+      include: [
+        { model: Aluno, as: 'aluno', attributes: ['id', 'name'] },
+        { model: Pacient, as: 'pacient', attributes: ['id', 'name'] },
+      ],
+    });
+    res.json(consultas);
   }
 }
 export default new ConsultaController();

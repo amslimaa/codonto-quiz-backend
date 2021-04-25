@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import Anamnese from '../models/Anamnese';
+import Pacient from '../models/Pacient';
 
 class AnamneseController {
   async store(req, res) {
@@ -38,6 +39,14 @@ class AnamneseController {
       covid_cases_cycle,
       death_case_by_covid,
     });
+  }
+
+  async show(req, res) {
+    const anamneses = await Anamnese.findAll({
+      attributes: ['can_be_consulted', 'created_at'],
+      include: [{ model: Pacient, as: 'pacient', attributes: ['id', 'name'] }],
+    });
+    return res.json(anamneses);
   }
 }
 export default new AnamneseController();

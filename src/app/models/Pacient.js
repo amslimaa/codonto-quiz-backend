@@ -6,7 +6,7 @@ class Pacient extends Model {
       {
         name: Sequelize.STRING,
         phone: Sequelize.STRING,
-        birth: Sequelize.DATE,
+        birth: Sequelize.STRING,
         gen: Sequelize.STRING,
       },
       {
