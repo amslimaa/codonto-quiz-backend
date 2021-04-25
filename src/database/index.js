@@ -27,7 +27,10 @@ class Database {
   }
 
   init() {
-    this.connection = new Sequelize(process.env.DATABASE_URL);
+    this.connection = new Sequelize(process.env.DATABASE_URL, {
+      dialect: 'postgres',
+      protocol: 'postgres',
+    });
 
     models.map((model) => model.init(this.connection));
     models.map(
