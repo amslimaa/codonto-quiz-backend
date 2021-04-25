@@ -8,8 +8,6 @@ import Anamnese from '../app/models/Anamnese';
 import Aluno from '../app/models/Aluno';
 import Consult from '../app/models/Consult';
 
-import databaseConfig from '../config/database';
-
 const models = [
   Users,
   Question,
